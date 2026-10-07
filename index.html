@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BossBestPrice</title>
+<meta name="description" content="Snap a photo of any product and BossBestPrice finds the best delivered price across Singapore online stores. Launching soon on iOS and Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF0EE;--surface:#FFFFFF;--ink:#10302F;--muted:#5B706E;--line:#CBD8D5;--accent:#0E7C66;--accent-ink:#FFFFFF;--win:#F2C230}
+@media (prefers-color-scheme: dark){:root{--bg:#0D1C1B;--surface:#152826;--ink:#E4EFEC;--muted:#93AAA6;--line:#2A4441;--accent:#3CC3A2;--accent-ink:#06201B}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.hero{background:var(--accent);color:var(--accent-ink)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+.brand{font:800 18px "Barlow Condensed",sans-serif;letter-spacing:1px;text-transform:uppercase;opacity:.85;margin:0 0 18px}
+h1{font:800 clamp(44px,8vw,76px)/.95 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 18px;letter-spacing:-.5px}
+.hero p{font-size:19px;margin:0 0 24px;max-width:34ch}
+.pill{display:inline-block;background:var(--win);color:#10302F;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px}
+.phone{justify-self:center;width:min(270px,100%);border-radius:28px;border:6px solid rgba(255,255,255,.25);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.phone img{display:block;width:100%;height:auto}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+h2{font:800 36px/1.05 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 24px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;counter-increment:s}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;margin-bottom:10px}
+.steps strong{display:block;font-size:19px;margin-bottom:4px}
+.steps span,.why p,.faq p{color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px}
+.why h3,.faq h3{font-size:18px;margin:0 0 4px}
+.why p,.faq p{margin:0}
+.faq{display:grid;gap:20px;max-width:680px}
+footer{padding:32px 0 48px;font-size:14px;color:var(--muted)}
+footer p{margin:0 0 10px;max-width:70ch}
+a{color:var(--accent)}
+@media (max-width:720px){.hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}.steps,.why{grid-template-columns:1fr}.phone{width:220px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="brand">BossBestPrice</p>
+      <h1>Snap it. Know the best price.</h1>
+      <p>See something you want to buy? Take a photo, and BossBestPrice works out exactly what it is and where in Singapore it's cheapest, shipping included.</p>
+      <span class="pill">In testing · Launching soon on iOS and Android</span>
+    </div>
+    <div class="phone"><img src="results.jpg" alt="BossBestPrice app showing a laptop's prices compared across Singapore stores, cheapest first" width="360" height="780"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section aria-labelledby="how">
+    <h2 id="how">How it works</h2>
+    <ol class="steps">
+      <li><strong>Snap</strong><span>Photograph any product, in a shop or at home. Packaging, labels and logos all help, and no barcode is needed.</span></li>
+      <li><strong>Identify</strong><span>The app recognises the brand, model and variant, and suggests alternatives if it isn't sure.</span></li>
+      <li><strong>Compare</strong><span>See matching listings from Singapore stores side by side, ranked by the total you'd actually pay.</span></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="why">
+    <h2 id="why">Why BossBestPrice</h2>
+    <div class="why">
+      <div><h3>Photo first</h3><p>Most price checkers make you type a product name or scan a barcode. Just point your camera at it.</p></div>
+      <div><h3>Delivered price, not sticker price</h3><p>Shipping is added in, so a cheap listing with expensive delivery doesn't fool you.</p></div>
+      <div><h3>Exact matches only</h3><p>Accessories, refills, used items and knockoffs are filtered out, so you compare the same thing.</p></div>
+      <div><h3>Built for Singapore</h3><p>Prices in SGD from stores that deliver here, from big marketplaces to local retailers.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <h2 id="faq">FAQ</h2>
+    <div class="faq">
+      <div><h3>Which stores does it check?</h3><p>Major online marketplaces in Singapore, plus local electronics, home and lifestyle retailers, depending on the product.</p></div>
+      <div><h3>Will it be free?</h3><p>Yes. The app will be free to use.</p></div>
+      <div><h3>When does it launch?</h3><p>It's being tested now, with a launch on iOS and Android planned soon.</p></div>
+      <div><h3>What happens to my photos?</h3><p>Photos are used only to identify the product you're searching for. They aren't sold or used for advertising.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><strong>Affiliate disclosure:</strong> BossBestPrice participates in affiliate programmes including Shopee Affiliates, Lazada Affiliates and Amazon Associates. When you buy through links in the app, we may earn a commission at no extra cost to you. As an Amazon Associate, BossBestPrice earns from qualifying purchases.</p>
+  <p>Contact: <a href="mailto:wongyuenzeng@gmail.com">wongyuenzeng@gmail.com</a></p>
+  <p>© 2026 BossBestPrice</p>
+</footer>
+</body>
+</html>
