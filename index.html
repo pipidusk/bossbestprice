@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BossBestPrice</title>
-<meta name="description" content="Snap a photo of any product and BossBestPrice finds the best delivered price across Singapore online stores. Launching soon on iOS and Android.">
+<meta name="description" content="Snap a photo of anything and BossBestPrice finds who sells it cheapest in Singapore: Shopee, Lazada, Amazon.sg, Carousell, Taobao, Temu and the shops that usually stock it. Launching soon on iOS and Android.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@ h2{font:800 36px/1.05 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 24
 .steps li::before{content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;margin-bottom:10px}
 .steps strong{display:block;font-size:19px;margin-bottom:4px}
 .steps span,.why p,.faq p{color:var(--muted)}
-.why{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 32px}
 .why h3,.faq h3{font-size:18px;margin:0 0 4px}
 .why p,.faq p{margin:0}
 .faq{display:grid;gap:20px;max-width:680px}
@@ -44,8 +44,8 @@ a{color:var(--accent)}
   <div class="wrap">
     <div>
       <p class="brand">BossBestPrice</p>
-      <h1>Snap it. Know the best price.</h1>
-      <p>See something you want to buy? Take a photo, and BossBestPrice works out exactly what it is and where in Singapore it's cheapest, shipping included.</p>
+      <h1>Snap it. Find it cheapest.</h1>
+      <p>Take a photo of anything and BossBestPrice finds who sells it cheapest in Singapore: Shopee, Lazada, Amazon.sg, Carousell, Taobao, Temu and the shops that usually stock it, second-hand deals included.</p>
       <span class="pill">In testing · Launching soon on iOS and Android</span>
     </div>
     <div class="phone"><img src="results.jpg" alt="BossBestPrice app showing a laptop's prices compared across Singapore stores, cheapest first" width="360" height="780"></div>
@@ -56,36 +56,39 @@ a{color:var(--accent)}
   <section aria-labelledby="how">
     <h2 id="how">How it works</h2>
     <ol class="steps">
-      <li><strong>Snap</strong><span>Photograph any product, in a shop or at home. Packaging, labels and logos all help, and no barcode is needed.</span></li>
-      <li><strong>Identify</strong><span>The app recognises the brand, model and variant, and suggests alternatives if it isn't sure.</span></li>
-      <li><strong>Compare</strong><span>See matching listings from Singapore stores side by side, ranked by the total you'd actually pay.</span></li>
+      <li><strong>Snap</strong><span>Photograph any product, in a shop or at home. Labels and logos help, but no barcode is needed. Or just type its name in Search.</span></li>
+      <li><strong>Identify</strong><span>The app works out the exact brand, model and variant, using a reverse image search and an online double-check for tricky items.</span></li>
+      <li><strong>Compare</strong><span>See Shopee, Lazada, Amazon.sg and Carousell at a glance, then every matching listing as it comes in, ranked by the total you'd actually pay.</span></li>
     </ol>
   </section>
 
   <section aria-labelledby="why">
     <h2 id="why">Why BossBestPrice</h2>
     <div class="why">
-      <div><h3>Photo first</h3><p>Most price checkers make you type a product name or scan a barcode. Just point your camera at it.</p></div>
+      <div><h3>Photo first</h3><p>Most price checkers make you type a product name or scan a barcode. Just point your camera at it, even at unbranded or hard-to-name items.</p></div>
+      <div><h3>The right shops for each item</h3><p>Beyond the big marketplaces, it checks where people usually buy that kind of thing: Courts and Harvey Norman for furniture, Watsons and Guardian for personal care, and more.</p></div>
+      <div><h3>Exact matches, honestly labelled</h3><p>Accessories and knockoffs are filtered out. Second-hand deals are kept but clearly marked, and near-matches are shown separately.</p></div>
       <div><h3>Delivered price, not sticker price</h3><p>Shipping is added in, so a cheap listing with expensive delivery doesn't fool you.</p></div>
-      <div><h3>Exact matches only</h3><p>Accessories, refills, used items and knockoffs are filtered out, so you compare the same thing.</p></div>
-      <div><h3>Built for Singapore</h3><p>Prices in SGD from stores that deliver here, from big marketplaces to local retailers.</p></div>
+      <div><h3>History that remembers</h3><p>Every scan and search is saved with the prices found, so you can come back later and check again in one tap.</p></div>
+      <div><h3>Built for Singapore</h3><p>Prices in SGD from shops that sell here. Taobao and Temu deals are included but clearly marked as shipping from China.</p></div>
     </div>
   </section>
 
   <section aria-labelledby="faq">
     <h2 id="faq">FAQ</h2>
     <div class="faq">
-      <div><h3>Which stores does it check?</h3><p>Major online marketplaces in Singapore, plus local electronics, home and lifestyle retailers, depending on the product.</p></div>
+      <div><h3>Which stores does it check?</h3><p>Shopee, Lazada, Amazon.sg and Carousell on every search, plus Taobao and Temu, the Singapore shops that usually sell that kind of item, and Google Shopping.</p></div>
       <div><h3>Will it be free?</h3><p>Yes. The app will be free to use.</p></div>
       <div><h3>When does it launch?</h3><p>It's being tested now, with a launch on iOS and Android planned soon.</p></div>
-      <div><h3>What happens to my photos?</h3><p>Photos are used only to identify the product you're searching for. They aren't sold or used for advertising.</p></div>
+      <div><h3>What happens to my photos?</h3><p>Your photo is sent to our identification and image-search services only to work out what the product is and find it online. It isn't sold, and it isn't used for advertising. Your scan history, including photos, is saved only on your phone, and you can delete it anytime. The full details are in our <a href="privacy.html">privacy policy</a>.</p></div>
+      <div><h3>Does this website track me?</h3><p>No. This site doesn't use cookies or analytics. Links in the app to some stores contain affiliate tracking codes, so the store knows the purchase came from BossBestPrice.</p></div>
     </div>
   </section>
 </main>
 
 <footer class="wrap">
   <p><strong>Affiliate disclosure:</strong> BossBestPrice participates in affiliate programmes including Shopee Affiliates, Lazada Affiliates and Amazon Associates. When you buy through links in the app, we may earn a commission at no extra cost to you. As an Amazon Associate, BossBestPrice earns from qualifying purchases.</p>
-  <p>Contact: <a href="mailto:wongyuenzeng@gmail.com">wongyuenzeng@gmail.com</a></p>
+  <p><a href="privacy.html">Privacy policy</a> · <a href="support.html">Support</a> · <a href="mailto:wongyuenzeng@gmail.com">wongyuenzeng@gmail.com</a></p>
   <p>© 2026 BossBestPrice</p>
 </footer>
 </body>
