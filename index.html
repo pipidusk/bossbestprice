@@ -33,10 +33,14 @@ h2{font:800 36px/1.05 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 24
 .why h3,.faq h3{font-size:18px;margin:0 0 4px}
 .why p,.faq p{margin:0}
 .faq{display:grid;gap:20px;max-width:680px}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line)}
+.shots figcaption{color:var(--muted);font-size:15px;margin-top:8px}
 footer{padding:32px 0 48px;font-size:14px;color:var(--muted)}
 footer p{margin:0 0 10px;max-width:70ch}
 a{color:var(--accent)}
-@media (max-width:720px){.hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}.steps,.why{grid-template-columns:1fr}.phone{width:220px}}
+@media (max-width:720px){.hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}.steps,.why,.shots{grid-template-columns:1fr}.phone{width:220px}}
 </style>
 </head>
 <body>
@@ -48,7 +52,7 @@ a{color:var(--accent)}
       <p>Take a photo of anything and BossBestPrice finds who sells it cheapest in Singapore: Shopee, Lazada, Amazon.sg, Carousell, Taobao, Temu and the shops that usually stock it, second-hand deals included.</p>
       <span class="pill">In testing · Launching soon on iOS and Android</span>
     </div>
-    <div class="phone"><img src="results.jpg" alt="BossBestPrice app showing a laptop's prices compared across Singapore stores, cheapest first" width="360" height="780"></div>
+    <div class="phone"><img src="shot-results.jpg" alt="BossBestPrice results for Audio-Technica ATH-M50x headphones: cheapest delivered S$118 at Musicshop SG, with Shopee, Lazada, Amazon.sg and Carousell compared" width="540" height="1026"></div>
   </div>
 </header>
 
@@ -60,6 +64,14 @@ a{color:var(--accent)}
       <li><strong>Identify</strong><span>The app works out the exact brand, model and variant, using a reverse image search and an online double-check for tricky items.</span></li>
       <li><strong>Compare</strong><span>See Shopee, Lazada, Amazon.sg and Carousell at a glance, then every matching listing as it comes in, ranked by the total you'd actually pay.</span></li>
     </ol>
+  </section>
+
+  <section aria-labelledby="inside">
+    <h2 id="inside">Inside the app</h2>
+    <div class="shots">
+      <figure><img src="shot-home.jpg" alt="BossBestPrice home screen with a big Snap a product button, your current scan, and a search box" width="540" height="643" loading="lazy"><figcaption>One tap to snap. Your current scan is always one tap away.</figcaption></figure>
+      <figure><img src="shot-history.jpg" alt="BossBestPrice history listing past scans with the best price found for each" width="540" height="579" loading="lazy"><figcaption>Every scan is saved with its best price, so you can check again later.</figcaption></figure>
+    </div>
   </section>
 
   <section aria-labelledby="why">
