@@ -4,99 +4,196 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BossBestPrice</title>
-<meta name="description" content="Snap a photo of anything and BossBestPrice finds who sells it cheapest in Singapore: Shopee, Lazada, Amazon.sg, Carousell, Taobao, Temu and the shops that usually stock it. Launching soon on iOS and Android.">
+<meta name="description" content="Paste a link, type a name, scan a barcode or snap a photo, and Boss shows who sells it cheapest in Singapore. Price-drop alerts, price-match tracking, gift ideas and shopping lists too. Launching soon on iOS and Android.">
+<meta name="theme-color" content="#DC0F30">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#EAF0EE;--surface:#FFFFFF;--ink:#10302F;--muted:#5B706E;--line:#CBD8D5;--accent:#0E7C66;--accent-ink:#FFFFFF;--win:#F2C230}
-@media (prefers-color-scheme: dark){:root{--bg:#0D1C1B;--surface:#152826;--ink:#E4EFEC;--muted:#93AAA6;--line:#2A4441;--accent:#3CC3A2;--accent-ink:#06201B}}
+:root{--bg:#F4F3EE;--surface:#FFFFFF;--ink:#463F3A;--muted:#7D756F;--line:#DAD6CF;--accent:#DC0F30;--accent-ink:#FFFFFF;--blush:#F6E3DC;--blush-line:#E0AFA0}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header.hero{background:var(--accent);color:var(--accent-ink)}
-.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
-.brand{font:800 18px "Barlow Condensed",sans-serif;letter-spacing:1px;text-transform:uppercase;opacity:.85;margin:0 0 18px}
-h1{font:800 clamp(44px,8vw,76px)/.95 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 18px;letter-spacing:-.5px}
-.hero p{font-size:19px;margin:0 0 24px;max-width:34ch}
-.pill{display:inline-block;background:var(--win);color:#10302F;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px}
-.phone{justify-self:center;width:min(270px,100%);border-radius:28px;border:6px solid rgba(255,255,255,.25);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25)}
-.phone img{display:block;width:100%;height:auto}
-section{padding:56px 0;border-bottom:1px solid var(--line)}
-h2{font:800 36px/1.05 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 24px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0;counter-reset:s}
-.steps li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;counter-increment:s}
-.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;margin-bottom:10px}
-.steps strong{display:block;font-size:19px;margin-bottom:4px}
-.steps span,.why p,.faq p{color:var(--muted)}
-.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 32px}
-.why h3,.faq h3{font-size:18px;margin:0 0 4px}
-.why p,.faq p{margin:0}
-.faq{display:grid;gap:20px;max-width:680px}
-.shots{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.shots figure{margin:0}
-.shots img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line)}
-.shots figcaption{color:var(--muted);font-size:15px;margin-top:8px}
-footer{padding:32px 0 48px;font-size:14px;color:var(--muted)}
-footer p{margin:0 0 10px;max-width:70ch}
+html{color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Rubik,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 a{color:var(--accent)}
-@media (max-width:720px){.hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}.steps,.why,.shots{grid-template-columns:1fr}.phone{width:220px}}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px;color:var(--ink);text-decoration:none;letter-spacing:-.3px}
+.logo img{width:36px;height:36px;border-radius:10px}
+.logo b{color:var(--accent);font-weight:900}
+.status{background:var(--ink);color:#fff;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px;white-space:nowrap}
+
+/* hero: the app's big red card */
+.hero{background:var(--accent);color:var(--accent-ink);border-radius:36px;padding:48px 44px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;position:relative;overflow:hidden}
+.hero h1{font-weight:900;text-transform:uppercase;font-size:clamp(44px,7.4vw,84px);line-height:.92;letter-spacing:-1.5px;margin:0 0 20px}
+.hero p{font-size:19px;margin:0 0 26px;max-width:36ch}
+.hero .boss{width:96px;height:auto;margin-bottom:18px;transform:rotate(-6deg);filter:drop-shadow(0 6px 0 rgba(0,0,0,.12))}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{border:2px solid rgba(255,255,255,.85);border-radius:999px;padding:9px 16px;font-weight:700;font-size:15px}
+.badge.solid{background:#fff;color:var(--accent);border-color:#fff}
+.phone{justify-self:center;width:min(290px,100%);border-radius:34px;border:7px solid #fff;overflow:hidden;box-shadow:0 24px 60px rgba(70,20,20,.35);background:#fff}
+.phone img{display:block;width:100%;height:auto}
+
+section{padding:64px 0 8px}
+h2{font-weight:900;text-transform:uppercase;font-size:clamp(32px,4.6vw,44px);line-height:1;letter-spacing:-.6px;margin:0 0 12px}
+.lede{color:var(--muted);margin:0 0 28px;max-width:60ch}
+
+/* meet Boss */
+.meet{background:var(--blush);border:1.5px solid var(--blush-line);border-radius:28px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.meet img{width:110px;height:auto;transform:rotate(-4deg)}
+.bubbles{display:grid;gap:10px;justify-items:start}
+.bubble{background:var(--surface);border-radius:20px 20px 20px 6px;padding:10px 16px;font-weight:500;box-shadow:0 1px 0 var(--line)}
+.bubble strong{color:var(--accent)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px;counter-increment:s}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;margin-bottom:12px}
+.steps strong{display:block;font-size:20px;font-weight:800;margin-bottom:4px}
+.steps span{color:var(--muted)}
+
+/* screenshots: a swipeable strip */
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,26%,260px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 20px;margin:0 -4px;scrollbar-width:thin}
+.strip figure{margin:0;scroll-snap-align:start}
+.strip .frame{border-radius:28px;border:6px solid var(--surface);overflow:hidden;box-shadow:0 10px 30px rgba(70,63,58,.14);background:var(--surface)}
+.strip img{display:block;width:100%;height:auto}
+.strip figcaption{margin-top:12px;font-size:15px;color:var(--muted)}
+.strip figcaption b{display:block;color:var(--ink);font-size:17px;font-weight:800}
+.hint{font-size:14px;color:var(--muted);margin:-6px 0 0}
+
+/* features */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.why div{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px}
+.why h3{font-size:18px;font-weight:800;margin:0 0 4px}
+.why p{margin:0;color:var(--muted)}
+.why .hot{background:var(--blush);border-color:var(--blush-line)}
+
+/* plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px}
+.plan{background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:24px}
+.plan.plus{border:2.5px solid var(--accent)}
+.plan h3{margin:0;font-weight:900;text-transform:uppercase;font-size:24px}
+.plan .price{font-weight:800;font-size:18px;margin:2px 0 12px;color:var(--accent)}
+.plan ul{margin:0;padding-left:20px;color:var(--muted)}
+.plan li{margin:4px 0}
+
+.faq{display:grid;gap:14px;max-width:760px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 20px}
+.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-weight:900;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--muted)}
+
+footer{margin-top:64px;border-top:1px solid var(--line);padding:32px 0 48px;font-size:14px;color:var(--muted)}
+footer p{margin:0 0 10px;max-width:72ch}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding:32px 24px 0;border-radius:28px}
+  .phone{width:240px;margin-bottom:-60px}
+  .hero{padding-bottom:0;margin-bottom:60px}
+  .steps,.why,.plans{grid-template-columns:1fr}
+  .meet{grid-template-columns:1fr;justify-items:center;text-align:left}
+  .strip{grid-auto-columns:72%}
+  .logo{font-size:19px}.logo img{width:32px;height:32px}.status{font-size:12px;padding:6px 11px}
+  .hero .boss{width:72px}
+}
+@media (max-width:820px){.hero{overflow:visible}}
 </style>
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <div>
-      <p class="brand">BossBestPrice</p>
-      <h1>Snap it. Find it cheapest.</h1>
-      <p>Take a photo of anything and BossBestPrice finds who sells it cheapest in Singapore: Shopee, Lazada, Amazon.sg, Carousell, Taobao, Temu and the shops that usually stock it, second-hand deals included.</p>
-      <span class="pill">In testing · Launching soon on iOS and Android</span>
-    </div>
-    <div class="phone"><img src="shot-results.jpg" alt="BossBestPrice results for Audio-Technica ATH-M50x headphones: cheapest delivered S$118 at Musicshop SG, with Shopee, Lazada, Amazon.sg and Carousell compared" width="540" height="1026"></div>
-  </div>
-</header>
+<div class="wrap">
+  <nav class="top">
+    <a class="logo" href="./"><img src="apple-touch-icon.png" alt=""><span>Boss<b>BestPrice</b></span></a>
+    <span class="status">Launching soon</span>
+  </nav>
 
-<main class="wrap">
+  <header class="hero">
+    <div>
+      <img class="boss" src="boss.png" alt="" width="240" height="253">
+      <h1>Find it cheapest.</h1>
+      <p>Paste a link, type a name, scan a barcode or snap a photo. Boss checks the stores across Singapore, second-hand deals included, and shows you the cheapest delivered price.</p>
+      <div class="badges"><span class="badge solid">In testing now</span><span class="badge">iOS &amp; Android soon</span></div>
+    </div>
+    <div class="phone"><img src="shot-results.jpg" alt="Results for a Dyson V8 Slim Fluffy vacuum: cheapest delivered S$369 at Gain City, with Monitor price and Bought it buttons, Shopee, Lazada, Amazon.sg and Carousell compared, and listings from Gain City and Courts" width="600" height="1241"></div>
+  </header>
+
+  <section aria-labelledby="meet">
+    <h2 id="meet">Meet Boss</h2>
+    <div class="meet">
+      <img src="boss.png" alt="Boss, the app's mascot: a cream-coloured blob with a toothy grin" width="240" height="253" loading="lazy">
+      <div class="bubbles">
+        <span class="bubble">Hello! I'm Tag, the <strong>P.R.I.C.E.</strong></span>
+        <span class="bubble">That's my title: <strong>P</strong>robably <strong>R</strong>eally <strong>I</strong>nnovative <strong>C</strong>onsumer <strong>E</strong>xpert. Or you can call me Boss!</span>
+        <span class="bubble">I hunt down the cheapest price for anything in Singapore.</span>
+      </div>
+    </div>
+  </section>
+
   <section aria-labelledby="how">
     <h2 id="how">How it works</h2>
+    <p class="lede">Three taps from "is this a good price?" to the cheapest shop.</p>
     <ol class="steps">
-      <li><strong>Snap</strong><span>Photograph any product, in a shop or at home. Labels and logos help, but no barcode is needed. Or just type its name in Search.</span></li>
-      <li><strong>Identify</strong><span>The app works out the exact brand, model and variant, using a reverse image search and an online double-check for tricky items.</span></li>
-      <li><strong>Compare</strong><span>See Shopee, Lazada, Amazon.sg and Carousell at a glance, then every matching listing as it comes in, ranked by the total you'd actually pay.</span></li>
+      <li><strong>Search your way</strong><span>Paste a link from Shopee, Lazada, Amazon.sg, TikTok Shop and more. Or type a name, scan a barcode, or snap or pick a photo.</span></li>
+      <li><strong>Pick the right one</strong><span>Boss fixes typos ("Did you mean…?") and narrows broad searches. Type "dyson", pick a category, then the model.</span></li>
+      <li><strong>Compare and buy</strong><span>Every matching listing in a photo grid, ranked by what you'd actually pay. Tap a listing to go straight to the shop.</span></li>
     </ol>
   </section>
 
   <section aria-labelledby="inside">
     <h2 id="inside">Inside the app</h2>
-    <div class="shots">
-      <figure><img src="shot-home.jpg" alt="BossBestPrice home screen with a big Snap a product button, your current scan, and a search box" width="540" height="643" loading="lazy"><figcaption>One tap to snap. Your current scan is always one tap away.</figcaption></figure>
-      <figure><img src="shot-history.jpg" alt="BossBestPrice history listing past scans with the best price found for each" width="540" height="579" loading="lazy"><figcaption>Every scan is saved with its best price, so you can check again later.</figcaption></figure>
+    <p class="hint">Swipe to see more →</p>
+    <div class="strip" tabindex="0" aria-label="App screenshots">
+      <figure><div class="frame"><img src="shot-home.jpg" alt="Home screen: Find it cheapest, with paste a link, type a product name, snap a photo and scan barcode, a gift idea card, and your current search" width="600" height="1241" loading="lazy"></div><figcaption><b>Start anywhere</b>Paste, type, scan or snap.</figcaption></figure>
+      <figure><div class="frame"><img src="shot-search.jpg" alt="Search tab with two searches in progress and earlier searches with the best price found for each" width="600" height="1241" loading="lazy"></div><figcaption><b>Search several at once</b>Searches run side by side, and your history keeps the prices found.</figcaption></figure>
+      <figure><div class="frame"><img src="shot-results.jpg" alt="Results for a Dyson V8: cheapest delivered S$369 at Gain City, saving S$549.88 versus the priciest match" width="600" height="1241" loading="lazy"></div><figcaption><b>Cheapest, delivered</b>Every match ranked by the total you'd pay.</figcaption></figure>
+      <figure><div class="frame"><img src="shot-gifts.jpg" alt="Gift ideas: for a 21 year old F1 fan under S$30, Boss suggests an official F1 cap and an F1 driver poster, each with Find the cheapest" width="600" height="1150" loading="lazy"></div><figcaption><b>Gift ideas</b>Say who it's for and your budget. Boss suggests gifts and finds the cheapest.</figcaption></figure>
+      <figure><div class="frame"><img src="shot-monitor.jpg" alt="Saved tab, Monitoring: a Dyson V8 at S$399 at Courts, same price as when saved, checked 12 hours ago" width="600" height="1241" loading="lazy"></div><figcaption><b>Monitor prices</b>Boss checks every day and tells you when it drops.</figcaption></figure>
+      <figure><div class="frame"><img src="shot-bought.jpg" alt="Saved tab, Bought: a Dyson bought at Courts for S$500, 14 days left to claim, Claim S$131 back because Gain City sells it for S$369, with an add invoice option" width="600" height="1241" loading="lazy"></div><figcaption><b>Claim money back</b>Keep your purchase and invoice. Boss spots a lower price while you can still claim.</figcaption></figure>
+      <figure><div class="frame"><img src="shot-lists.jpg" alt="Lists tab with lists called Reno appliances and My list, and a New list button" width="600" height="1241" loading="lazy"></div><figcaption><b>Shopping lists</b>Lists like "Reno appliances", with totals per shop and a budget.</figcaption></figure>
     </div>
   </section>
 
   <section aria-labelledby="why">
     <h2 id="why">Why BossBestPrice</h2>
     <div class="why">
-      <div><h3>Photo first</h3><p>Most price checkers make you type a product name or scan a barcode. Just point your camera at it, even at unbranded or hard-to-name items.</p></div>
-      <div><h3>The right shops for each item</h3><p>Beyond the big marketplaces, it checks where people usually buy that kind of thing: Courts and Harvey Norman for furniture, Watsons and Guardian for personal care, and more.</p></div>
-      <div><h3>Exact matches, honestly labelled</h3><p>Accessories and knockoffs are filtered out. Second-hand deals are kept but clearly marked, and near-matches are shown separately.</p></div>
-      <div><h3>Delivered price, not sticker price</h3><p>Shipping is added in, so a cheap listing with expensive delivery doesn't fool you.</p></div>
-      <div><h3>History that remembers</h3><p>Every scan and search is saved with the prices found, so you can come back later and check again in one tap.</p></div>
-      <div><h3>Built for Singapore</h3><p>Prices in SGD from shops that sell here. Taobao and Temu deals are included but clearly marked as shipping from China.</p></div>
+      <div class="hot"><h3>Is that link really the cheapest?</h3><p>Found it on Shopee, Lazada, Amazon.sg or TikTok Shop? Paste the link and see if anyone sells it for less.</p></div>
+      <div><h3>Delivered price, not sticker price</h3><p>Shipping is added where the shop lists it, so cheap listings with pricey delivery don't fool you.</p></div>
+      <div><h3>Clear, honest results</h3><p>Accessories and look-alikes are filtered out. Second-hand deals are marked, and listings bundling several versions are flagged.</p></div>
+      <div><h3>Price-drop alerts</h3><p>Tap "Monitor price" and Boss checks every day. You get a notification when it drops.</p></div>
+      <div class="hot"><h3>Money back with price match</h3><p>Many stores in Singapore match a lower price for a while after you buy. Tap "Bought it" and Boss keeps watching through the claim window.</p></div>
+      <div><h3>Invoices kept safe</h3><p>Add a photo or PDF of your receipt to a purchase. It's saved with your purchase, so it's there when you need it, even on a new phone.</p></div>
+      <div><h3>Shopping lists that add up</h3><p>Quantities, totals per shop and an optional budget. Price updates are free.</p></div>
+      <div><h3>Boss's picks</h3><p>For everyday things like scissors or an umbrella, Boss picks the cheapest decent one, the best value and a trusted brand.</p></div>
+      <div><h3>Shoppers help shoppers</h3><p>Found it cheaper somewhere else? Add the listing, and everyone searching that item sees it.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="plans">
+    <h2 id="plans">Free, or Plus</h2>
+    <p class="lede">Every new phone gets Plus free for 7 days. No card needed.</p>
+    <div class="plans">
+      <div class="plan"><h3>Free</h3><p class="price">S$0</p><ul><li>3 searches a day</li><li>+1 for each short ad you choose to watch (up to 5 a day)</li><li>3 monitored items, 1 purchase, 3 lists</li></ul></div>
+      <div class="plan plus"><h3>Plus</h3><p class="price">S$2.99 a month or S$24.99 a year</p><ul><li>30 searches a day, no ads</li><li>Top up more any time</li><li>20 monitored items, 10 purchases, 50 lists</li></ul></div>
     </div>
   </section>
 
   <section aria-labelledby="faq">
     <h2 id="faq">FAQ</h2>
     <div class="faq">
-      <div><h3>Which stores does it check?</h3><p>Shopee, Lazada, Amazon.sg and Carousell on every search, plus Taobao and Temu, the Singapore shops that usually sell that kind of item, and Google Shopping.</p></div>
-      <div><h3>Will it be free?</h3><p>Yes. The app will be free to use.</p></div>
-      <div><h3>When does it launch?</h3><p>It's being tested now, with a launch on iOS and Android planned soon.</p></div>
-      <div><h3>What happens to my photos?</h3><p>Your photo is sent to our identification and image-search services only to work out what the product is and find it online. It isn't sold, and it isn't used for advertising. Your scan history, including photos, is saved only on your phone, and you can delete it anytime. The full details are in our <a href="privacy.html">privacy policy</a>.</p></div>
-      <div><h3>Does this website track me?</h3><p>No. This site doesn't use cookies or analytics. Links in the app to some stores contain affiliate tracking codes, so the store knows the purchase came from BossBestPrice.</p></div>
+      <details><summary>Which stores does it check?</summary><p>Shopee, Lazada, Amazon.sg and Carousell, plus Taobao and Temu (clearly marked as shipping from China), Google Shopping, and the Singapore shops that usually stock that kind of item. Amazon.sg prices are only shown when they come from Amazon itself. Otherwise you'll see "See price on Amazon.sg".</p></details>
+      <details><summary>Is it free? What's Plus?</summary><p>Yes, it's free to use. Free gives you 3 searches a day, plus 1 more for each short video ad you choose to watch (up to 5 a day). Plus costs S$2.99 a month or S$24.99 a year and gives you 30 searches a day with no ads, more monitored items, purchases and lists, and top-ups if you need more searches.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes. Every new phone gets Plus free for 7 days, no card needed. If you go back to free, your lists stay on your phone, but only the first 3 you made can be opened.</p></details>
+      <details><summary>Are there ads?</summary><p>Only if you choose. There are no banner ads. Free users can watch a short video ad for an extra search. Plus has no ads at all.</p></details>
+      <details><summary>How does price match work?</summary><p>Many stores in Singapore offer price matching, each with its own terms and time limit. Tap "Bought it" after buying, and Boss keeps checking prices during the window. If it finds a lower price, it shows you the amount and the listing to show the store. Always check the store's own terms before you go.</p></details>
+      <details><summary>Do I need an account?</summary><p>No. There's no sign-up, and the app never asks for your name, email or phone number.</p></details>
+      <details><summary>What if I change phones?</summary><p>On your old phone, open Saved, then Bought, and tap "Moving to a new phone?" to get a one-time code. Enter it on your new phone, and your monitored items, purchases, invoices and Plus come along.</p></details>
+      <details><summary>What happens to my photos and invoices?</summary><p>A photo you search with is sent to our server only to work out what the product is. It's held in memory for up to 15 minutes, then discarded. Invoices you add to a purchase are saved on our server so you don't lose them, and only your app can open them. Removing the invoice or the purchase deletes it. Your search history stays on your phone. Nothing is sold or used for advertising. The details are in our <a href="privacy.html">privacy policy</a>.</p></details>
+      <details><summary>Does this website track me?</summary><p>No. This site doesn't use cookies or analytics. It loads its fonts from Google Fonts. Links in the app to some stores contain affiliate tracking codes, so the store knows the purchase came from BossBestPrice.</p></details>
     </div>
   </section>
-</main>
+</div>
 
 <footer class="wrap">
   <p><strong>Affiliate disclosure:</strong> BossBestPrice participates in affiliate programmes including Shopee Affiliates, Lazada Affiliates and Amazon Associates. When you buy through links in the app, we may earn a commission at no extra cost to you. As an Amazon Associate, BossBestPrice earns from qualifying purchases.</p>
